@@ -9,29 +9,35 @@ import axios from "axios";
 export default function Register() {
   const [username, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [c_password, setCPassword] = useState("");
-  const [name_establishment, setEst] = useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
 
   const history = useHistory();
+
+  function formData() {
+    const form_data = new FormData();
+
+    form_data.append("username", username);
+    form_data.append("password", password);
+    form_data.append("firstName", firstName);
+    form_data.append("lastName", lastName);
+
+    return form_data;
+  }
 
   function handleRegister(e) {
     e.preventDefault();
 
-    const data = {
-      username,
-      password,
-      email: username,
-    };
 
-    let USER_URL = myConfig.API_URL + "/users/";
+    let USER_URL = `${myConfig.CRU_URL}/api/auth/register/`;
     axios({
       baseURL: USER_URL,
       method: "POST",
-      data: data,
+      data: formData(),
     })
       .then((res) => {
         if (res.status === 201) {
-          toast(`Cadastro realizado com sucesso !`);
+          toast(`Success!`);
         }
         setTimeout(() => {
           history.push("/login/");
@@ -48,49 +54,53 @@ export default function Register() {
   }
 
   return (
-    <div className="signup_content">
+    <div className="login_content">
       <div className="content">
         <section className="">
-          <h1>Cadastro</h1>
+          <h1 className="heading">Sign Up to CreditApp</h1>
         </section>
         <form onSubmit={handleRegister}>
           <input
-            value={name_establishment}
-            onChange={(e) => setEst(e.target.value)}
-            placeholder="Nome"
+            value={username}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Username"
+            className="input"
           />
           <br />
           <input
-            value={username}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="E-mail"
-            type="email"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            type="password"
+            className="input"
           />
 
           <div className="input-group">
             <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Senha"
-              type="password"
+              value={firstName}
+              onChange={(e) => setfirstName(e.target.value)}
+              placeholder="First Name"
+              type="text"
+              className="input"
             />
           </div>
 
           <input
-            value={c_password}
-            onChange={(e) => setCPassword(e.target.value)}
-            placeholder="Confirmar senha"
-            type="password"
+            value={lastName}
+            onChange={(e) => setlastName(e.target.value)}
+            placeholder="Last Name"
+            type="text"
+            className="input"
           />
         <br/>
           <button className="button" type="submit">
-            Cadastrar
+            Sign Up
           </button>
         </form>
       </div>
       <Link to="/" className="back-link">
             <FiArrowLeft size={16} color="b366ff" />
-            Já tenho cadastro
+            I already have an account
           </Link>
       <ToastContainer />
     </div>

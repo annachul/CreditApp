@@ -13,7 +13,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // console.log("componentDidMount in App");
 
     if (localStorage.getItem("user-token") !== null) {
       console.log('tem user-token')
@@ -28,16 +27,17 @@ class App extends Component {
         <Route
             path="/login/"
             render={() => (
-              <Redirect to={`/onepage/`} />
+              <Redirect to={`/AddPayment/`} />
             )}
           />
            <Route
             exact
             path="/"
             render={() => (
-              <Redirect to={`/onepage/`} />
+              <Redirect to={`/AddPayment/`} />
             )}
           />
+
           <Route path="/*" component={Routes} />
         </Layout>
       </Switch>
