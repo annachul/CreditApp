@@ -1,0 +1,39 @@
+body {
+  padding-top: 10vh;
+}
+.input {
+  padding: 10px;
+  margin: 5px;
+  width: 20px;
+}
+
+.month {
+  display: flex;
+  flex-direction: row;
+  padding-left: 8px;
+  width: 100%;
+}
+.back {
+  padding: 17px;
+  font-size: 17px;
+}
+
+.cat {
+  padding: 10px;
+}
+
+.sum {
+  padding: 10px;
+}
+
+.each {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  justify-content: space-between;
+}
+.allcat {
+  margin-top: 40px;
+  width: 100%;
+  padding-right: 300px;
+}
