@@ -95,7 +95,7 @@ useEffect(() => {const fetchData = async () => {
         }
         else {filtercategory="&category="+category["value"]}
 
-        const response =fetch('http://127.0.0.1:8000/api/payments?from='+filterdata.from+filterto+filtercategory,
+        const response =fetch('http://ec2-34-238-126-237.compute-1.amazonaws.com:8000/api/payments?from='+filterdata.from+filterto+filtercategory,
         {
             headers: {
                 'Authorization': `Token ${localStorage.getItem("user-token")}`

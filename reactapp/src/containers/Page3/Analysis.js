@@ -18,7 +18,7 @@ function  Analysis(){
 
     useEffect(() => {
         const fetchData = async () => {
-          const response = await fetch('http://127.0.0.1:8000/api/categories/1?month='+todaymonth+'&year='+todayear, {
+          const response = await fetch('http://ec2-34-238-126-237.compute-1.amazonaws.com:8000/api/categories/1?month='+todaymonth+'&year='+todayear, {
             headers: {
                 'Authorization': `Token ${localStorage.getItem("user-token")}`
                 }    
@@ -45,7 +45,7 @@ function  Analysis(){
             month=value.slice(5)
         }
         const fetchData = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/categories/1?month='+month+'&year='+year, {
+            const response = await fetch('http://ec2-34-238-126-237.compute-1.amazonaws.com:8000/api/categories/1?month='+month+'&year='+year, {
                 headers: {
                     'Authorization': `Token ${localStorage.getItem("user-token")}`
                     }    
@@ -71,7 +71,7 @@ function  Analysis(){
                 month=selectedMonthandYear.slice(5)
             }
         const fetchData = async () => {
-          const response = await fetch('http://127.0.0.1:8000/api/categories/' +val +'?month='+month+'&year='+year, {
+          const response = await fetch('http://ec2-34-238-126-237.compute-1.amazonaws.com:8000/api/categories/' +val +'?month='+month+'&year='+year, {
             headers: {
                 'Authorization': `Token ${localStorage.getItem("user-token")}`
             }
