@@ -5,6 +5,7 @@ How to run
 ```
 git clone https://github.com/annachul/CreditApp
 cd CreditApp
+cd reactapp
 ```
 
 Install all requirements:
